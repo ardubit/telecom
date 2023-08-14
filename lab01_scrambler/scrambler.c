@@ -2,7 +2,7 @@
 
 #define SCRAMBLER_KEY 0x5A /* Ключ для скремблера */
 
-void scramble(char *message, int length) {
+void scrambler(char *message, int length) {
   for (int i = 0; i < length; i++) {
     message[i] ^= SCRAMBLER_KEY;
     /* Використовуємо побітове XOR для скремблювання кожного
@@ -18,14 +18,12 @@ int main() {
 
   printf("Початкове повідомлення: %s\n", message);
 
-  scramble(message, length);
+  scrambler(message, length);
+  printf("%s\n", message);
 
-  printf("Скрембльоване повідомлення: %s\n", message);
-
-  scramble(message, length);
-  /* Для дешифрування достатньо знову застосувати 
-  той самий скремблер */
-
+  // Для дешифрування достатньо знову застосувати 
+  // той самий скремблер
+  scrambler(message, length);
   printf("Дешифроване повідомлення: %s\n", message);
 
   return 0;

@@ -4,7 +4,10 @@ gcc -o lab4_ccoder lab4_ccoder.c
 ./lab4_ccoder
 ========================================
 Необхідно реалізувати:
--
+1. Функцію, що реалізує обчислення кодування вхідних даних
+згортковим кодером
+2. Виконати перевірку роботи на тестовій початковій послідовності
+========================================
 Polynomials
 13oct 0o13 = 1011 = 0xB -> GP1 = x^3 + x^1 + x^0
 17oct 0o17 = 1111 = 0xF -> GP2 = x^3 + x^2 + x^1 + x^0
@@ -107,57 +110,3 @@ int main(int argc, char const *argv[]) {
 
   return 0;
 }
-
-// int coderConv(uint8_t *dataIn, uint8_t *dataOut) {
-//   printf("Згортковий кодер \n");
-//   uint8_t bufOut1[SIZE_DATA];
-//   uint8_t bufOut2[SIZE_DATA];
-//   uint8_t reg = (uint8_t)INIT_REG;
-//   for (size_t i = 0; i < SIZE_DATA; i++) {
-//     bufOut1[i] = (reg ^ GP1);
-//     bufOut2[i] = (reg ^ GP2);
-//     reg = (reg << 1) | dataIn[i];
-//   }
-
-//   printf("Вміст вихідного буферу #1: \n");
-//   for (size_t i = 0; i < SIZE_DATA; i++)
-//     toBinary(bufOut1[i]);
-//   printf("\n");
-//   printf("Вміст вихідного буферу #2: \n");
-//   for (size_t i = 0; i < SIZE_DATA; i++)
-//     toBinary(bufOut2[i]);
-//   printf("\n");
-
-//   for (size_t i = 0; i < SIZE_DATA; i++) {
-//     // GP1 1011 = 0xB
-//     // Вихідне значення визначається як XOR по 3 бітам 0, 1, 3
-//     bufOut1[i] = ((bufOut2[i] >> 3) ^ (bufOut2[i] >> 1) ^ bufOut2[i]) &
-//     0x1;
-
-//     // GP2 1111 = 0xF
-//     // Вихідне значення визначається як XOR по 4 бітам 0, 1, 2, 3
-//     bufOut2[i] = ((bufOut2[i] >> 3) ^ (bufOut2[i] >> 2) ^ (bufOut2[i] >> 1)
-//     ^
-//                   bufOut2[i]) &
-//                  0x1;
-//   }
-
-//   printf("Вихід N1: ");
-//   for (size_t i = 0; i < SIZE_DATA; i++)
-//     printf("%d ", bufOut1[i]);
-//     // toBinary(bufOut1[i]);
-//   printf("\n");
-
-//   printf("Вихід N2: ");
-//   for (size_t i = 0; i < SIZE_DATA; i++)
-//     printf("%d ", bufOut2[i]);
-
-//   printf("\n---\n");
-//   printf("Кодована послідовність [n1,n2][]...[] : \n");
-//   for (size_t i = 0; i < SIZE_DATA; i++) {
-//     uint8_t j = 0;
-//     dataOut[j] = bufOut1[i];
-//     dataOut[j + 1] = bufOut2[i];
-//     printf("%d %d ", dataOut[j], dataOut[j + 1]);
-//     j += 2;
-//   }

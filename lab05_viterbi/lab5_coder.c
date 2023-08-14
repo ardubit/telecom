@@ -1,7 +1,7 @@
 /*
 Дослідження декодера Вітербі. Кодер
-gcc -o 5cod 5cod.c
-./5cod
+gcc -o lab5_coder lab5_coder.c
+./lab5_coder
 ========================================
 Coder 3 registers
 G1 7oct G2 5oct
@@ -17,7 +17,7 @@ XOR якщо A!=B, B!=A то Y=1
 #include <time.h>
 
 #define SIZE_REG 3 // Довжина регістру
-#define N_OUTS 2 // Кількість виходів кодувальника
+#define N_OUTS 2   // Кількість виходів кодувальника
 
 // --- INIT HERE ----
 #define SIZE_DATA_BITS 6 // Довжина послідовності

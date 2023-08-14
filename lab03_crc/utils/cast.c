@@ -1,8 +1,7 @@
 #include <stdint.h>
 #include <stdio.h>
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const *argv[]) {
   uint32_t data = 0xFFFFAAAA;
   printf("Початкова послідовність: 0x%X\n", data);
 
